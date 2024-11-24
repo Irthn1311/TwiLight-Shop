@@ -2173,7 +2173,7 @@ html, body {
     border-radius: 4px;
 }
 
-.status-o.pending {
+.status-o.unprocessed {
     background-color: #ffc107;
     color: white;
 }
@@ -2183,7 +2183,7 @@ html, body {
     color: white;
 }
 
-.status-o.success {
+.status-o.succeeded {
     background-color: #28a745;
     color: white;
 }

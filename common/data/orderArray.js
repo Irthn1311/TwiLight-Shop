@@ -111,9 +111,6 @@ export function addOrderToArray(customerId, checkoutCart, date, name, phone, add
 
 // True: stDate <= checkDate <= ndDate
 function isBetweenTwoDate(checkDate, stDate, ndDate){
-    // const firstDate = new Date(stDate.getFullYear(), stDate.getMonth(), stDate.getDate());
-    // const secondDate = new Date(ndDate.getFullYear(), ndDate.getMonth(), ndDate.getDate());
-    // const currentDate = new Date(checkDate.getFullYear(), checkDate.getMonth(), checkDate.getDate());
     const firstDate = new Date(stDate); // Giữ nguyên thời gian của stDate
     const secondDate = new Date(ndDate); // Giữ nguyên thời gian của ndDate
     const currentDate = new Date(checkDate); // Giữ nguyên thời gian của checkDate
@@ -177,11 +174,6 @@ function compareDistrict(districtA, districtB){
         return districtA.localeCompare(districtB);
     }
 }
-// function getDistrictByCustomerId(customerId){
-//     const matchingCustomer = customerArray.find(customer => customerId === customer.username);
-//     return matchingCustomer.address.getDistrict();
-// }
-
 
 /** FUNC: thống kê, tạo ra một array các product đã được bán, trong đó:
  * 1. Tên sản phẩm

@@ -1536,71 +1536,78 @@ body {
 /* DETAIL STATISTICS PRODUCT */
 /* Đặt chung cho modal */
 /* Modal tổng thể */
-#modal-detailStatisticProduct {
+#modal-detailStatistic {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8); /* Nền mờ */
-    display: none; /* Ẩn mặc định */
-    justify-content: center; /* Canh giữa theo chiều ngang */
-    align-items: center; /* Canh giữa theo chiều dọc */
+    background-color: rgba(0, 0, 0, 0.7); /* Nền mờ */
+    display: none; 
+    justify-content: flex-start; /* Căn dọc từ trên xuống */
+    align-items: center; /* Canh giữa theo chiều ngang */
     flex-direction: column; /* Sắp xếp các đơn hàng theo chiều dọc */
-    padding: 20px; /* Khoảng cách nội dung */
+    padding: 20px 20px;
     overflow-y: auto; /* Cuộn nếu có nhiều đơn hàng */
     z-index: 1000; /* Hiển thị trên cùng */
+    box-sizing: border-box; /* Đảm bảo padding được tính đúng */
 }
 
 /* Nội dung mỗi đơn hàng */
-.detailStatisticProduct-content {
+.detailStatistic-content {
     background-color: #ffffff;
     border-radius: 8px;
     padding: 20px;
     width: 90%;
-    max-width: 600px; /* Giới hạn chiều rộng */
+    max-width: 800px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin-bottom: 20px; /* Khoảng cách giữa các đơn hàng */
-    position: relative; /* Để nút close nằm bên trong */
 }
 /* Tiêu đề */
-#modal-detailStatisticProduct h2 {
-    font-size: 1.5em;
+#modal-detailStatistic h2 {
+    font-size: 24px;
     text-align: center;
     color: white;
-    margin-bottom: 10px;
+    margin-top: 10px;
+}
+#modal-detailStatistic p {
+    font-size: 17px;
+    margin-bottom: 5px;
+} 
+#modal-detailStatistic p span {
+    margin-left: 15px;
 }
 /* Nút close gần với từng đơn hàng */
-/* .close-pop {
+.close-popStatistics {
     position: absolute;
     top: 10px;
     right: 10px;
     background-color: transparent;
     border: none;
-    font-size: 20px;
+    font-size: 50px;
     font-weight: bold;
-    color: #333;
+    color: white;
     cursor: pointer;
     transition: transform 0.2s ease-in-out;
 }
 
-.close-pop:hover {
-    transform: rotate(90deg);
-} */
+.close-popStatistics:hover {
+    transform: rotate(135deg);
+} 
 /* Thông tin đơn hàng */
-.detailStatisticProduct-info p {
+.detailStatistic-info p {
     margin: 5px 0;
     color: #555;
     font-size: 14px;
 }
 
-.detailStatisticProduct-info span {
+.detailStatistic-info span {
     font-weight: bold;
     color: #333;
 }
 
 /* Danh sách sản phẩm */
-#detailStatisticProduct-checkoutCart {
+#detailStatistic-checkoutCart {
     margin-top: 10px;
     border: 1px solid #ddd;
     padding: 10px;
@@ -1608,21 +1615,21 @@ body {
     background-color: #f9f9f9;
 }
 
-.detailStatisticProduct-item {
+.detailStatistic-item {
     display: flex;
     justify-content: space-between;
     padding: 5px 0;
     border-bottom: 1px solid #ddd;
 }
 
-.detailStatisticProduct-item:last-child {
+.detailStatistic-item:last-child {
     border-bottom: none;
 }
 
 /* Tổng tiền */
-.checkout-detailStatisticProduct-total-payment p {
+.checkout-detailStatistic-total-payment p {
     text-align: right;
-    font-size: 16px;
+    font-size: 24px;
     margin-top: 10px;
     color: red; /* Màu đỏ cho số tiền */
     font-weight: bold;
