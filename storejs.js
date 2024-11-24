@@ -1,6 +1,6 @@
-import {customerArray, checkExistedUsername, checkValidAccount, addCustomerToArray, saveCustomerArrayToStorage, Address} from './common/data/customerArray.js';
-import {Cart } from './common/data/cart.js';
-import {orderArray, saveOrderArrayToStorage, addOrderToArray} from './common/data/orderArray.js'
+import {customerArray, checkExistedUsername, checkValidAccount, addCustomerToArray, saveCustomerArrayToStorage, Address, InfoCard} from '../common/data/customerArray.js';
+import {Cart } from '../common/data/cart.js';
+import {orderArray, saveOrderArrayToStorage, addOrderToArray} from '../common/data/orderArray.js'
 /////
 let currentCart = undefined;
 let currentUsername;
@@ -108,6 +108,12 @@ document.addEventListener('DOMContentLoaded', () =>
         });
     document.querySelectorAll('.modal-close-btn').forEach(button => {  
         button.addEventListener('click', function () {  
+            document.getElementById('cash').checked = true;
+            cardPaymentForm.style.display = 'none';
+            document.getElementById('default-address').checked = true;
+            newAddressForm.style.display = 'none';
+            newAddress=false;
+            newCreditCard=false;
             document.getElementById('modal-overlay').style.display = 'none';  
         });  
     });
@@ -494,13 +500,11 @@ function saveCustomerDetails()
     if (currentCustomer) {  
         currentCustomer.phone = phone;  
         currentCustomer.name = fullname;  
-        currentCustomer.address = {  
-            city: province,  
-            district: district,  
-            numberAndRoad: ward  
-        };  
+        currentCustomer.address = new Address(province, district, ward);
         saveCustomerArrayToStorage();  
-        alert('Thông tin khách hàng đã được lưu.');  
+        alert('Thông tin khách hàng đã được lưu.'); 
+        document.querySelector('.modal-profile-a').style.display='none'; // Sau khi lưu thì tắt form
+        document.querySelector('.modal-profile-b').style.display='none'; 
     } else {  
         console.error("Customer not found");  
     }  
@@ -518,25 +522,34 @@ function saveCardDetails() {
 
     if (!cardNumber || !expiryDate || !cvv || !cardholderName || !billingAddress || !zipCode) {  
         alert('Vui lòng điền tất cả thông tin thẻ!');  
-        return;  
+        return false;  
     }
-    if(cardNumber.length !== 19) 
+    if(cardNumber.length !== 19 || cardNumber[4] !== ' '|| cardNumber[9] !== ' '|| cardNumber[14] !== ' ') 
     {
         alert('Số thẻ không đúng định dạng!');  
-        return;
-    }  
+        return false;
+    }
+    if(zipCode.length !==5)
+    {
+        alert('Mã bưu chính không đúng định dạng!');  
+        return false;
+    }
+    if(cvv.length !==3)
+    {
+        alert('Mã CVV gồm 3 chữ số!');  
+        return false;
+    }
+    if(expiryDate[2]!=='/' || expiryDate.length!==5)
+    {
+        alert('Ngày hết hạn không đúng định dạng!');  
+        return false;
+    }
     if (currentCustomer) {  
-        currentCustomer.card = {
-            cardNumber : cardNumber,
-            expiryDate : expiryDate,
-            cvv : cvv,
-            cardholderName : cardholderName,
-            billingAddress : billingAddress,
-            zipCode : zipCode
-        };
-
+        currentCustomer.infoCard = new InfoCard(cardNumber, expiryDate, cvv, cardholderName, billingAddress, zipCode); 
         saveCustomerArrayToStorage();  
-        alert('Thông tin thẻ đã được lưu!');  
+        alert('Thông tin thẻ đã được lưu!');
+        document.querySelector('.modal-profile-a').style.display='none'; // Sau khi lưu thì tắt form
+        document.querySelector('.modal-profile-b').style.display='none';
     } else {  
         console.error("Customer not found");  
     }  
@@ -558,7 +571,6 @@ function handleFormSubmit(event, formType)
         saveCardDetails();  
         //cardForm.reset();  
     }  
-
     // Print the updated array to the console for debugging  
     console.log('Current Data Array:', customerArray);  
 }
@@ -621,7 +633,7 @@ function thanhtoan()
     
         // Cập nhật thông tin user    
         // Nếu khách hang đã nhập thông tin trước đó, lấy thông tin đó, show lên
-        if(currentCustomer.address) 
+        if(currentCustomer.address.city) 
         {
             document.querySelector('.address-name').innerText = currentCustomer.name;  
             document.querySelector('.number-phone').innerText = currentCustomer.phone;
@@ -696,7 +708,8 @@ function updateSummary() {
     // Kiểm tra điều kiện của các phương thức
     summaryPaymentElement.innerText = paymentLabels[selectedPayment] || 'Chưa chọn phương thức thanh toán!';
     bankImageContainer.style.display = selectedPayment === 'bank' ? 'block' : 'none';
-    cardPaymentForm.style.display = (selectedPayment === 'cash' || selectedPayment === 'bank' || selectedPayment === 'account-card') ? 'none' : 'block'; 
+    cardPaymentForm.style.display = (selectedPayment === 'cash' || selectedPayment === 'bank' || selectedPayment === 'account-card') ? 'none' : 'block';
+    newCreditCard = (selectedPayment === 'cash' || selectedPayment === 'bank' || selectedPayment === 'account-card') ? false : true;
 }
 
 // Nút chọn phương thức thẻ mới  
@@ -714,7 +727,7 @@ creditCardPaymentOption.addEventListener('change', () => {
 // Nút chọn phương thức thẻ đã lưu trước đó 
 accountCardPaymentOption.addEventListener('change', () => {  
     // Kiểm tra người dùng đã nhập thông tin thẻ trước đó chưa  
-    if (currentCustomer.card === undefined) {  
+    if (!currentCustomer.infoCard.cardNumber) {  
         alert('Thông tin thẻ của bạn chưa được lưu, vui lòng lưu lại hoặc nhập thông tin mới!');  
         creditCardPaymentOption.checked = true;   // Chuyển qua phương thức nhập thẻ mới
         newCreditCard = true;
@@ -730,6 +743,7 @@ const bankImageContainer = document.getElementById('bank-image-container');
 bankPaymentOption.addEventListener('change', () => {
     if (bankPaymentOption.checked) {
         bankImageContainer.style.display = 'block';
+        newCreditCard = false;
     }
 });
 // Lưu thông tin thẻ mới khi chưa lưu
@@ -746,7 +760,7 @@ function checkNewCard()
         alert('Vui lòng điền tất cả thông tin thẻ!');  
         return false;  
     }
-    if(cardNumber.length !== 19) 
+    if(cardNumber.length !== 19 || cardNumber[4] !== ' '|| cardNumber[9] !== ' '|| cardNumber[14] !== ' ') 
     {
         alert('Số thẻ không đúng định dạng!');  
         return false;
@@ -766,19 +780,11 @@ function checkNewCard()
         alert('Ngày hết hạn không đúng định dạng!');  
         return false;
     } 
-    if (!currentCustomer.card) {  
-        currentCustomer.card = {
-            cardNumber : cardNumber,
-            expiryDate : expiryDate,
-            cvv : cvv,
-            cardholderName : cardholderName,
-            billingAddress : billingAddress,
-            zipCode : zipCode
-        };
-        saveCustomerArrayToStorage();   
+    if (!currentCustomer.infoCard.value) {  
+        currentCustomer.infoCard = new InfoCard(cardNumber, expiryDate, cvv, cardholderName, billingAddress, zipCode);
+        saveCustomerArrayToStorage();
+        console.log(JSON.parse(localStorage.getItem('customerArray')));   
     }
-    document.getElementById('cash').checked = true;
-    cardPaymentForm.style.display = 'none';
     return true;
 }
 // Update thông tin thẻ khi thay đổi phương thức  
@@ -804,17 +810,12 @@ function updateAddressSummary()
 
     if (selectedAddressOption.id === 'default-address') {
         // Kiểm tra customer.address có tồn tại không
-        if (currentCustomer.address) {
+        if (currentCustomer.address.city) {
             selectedAddress = {
                 name: currentCustomer.name,
                 phone: currentCustomer.phone,
                 address: new Address(currentCustomer.address.city, currentCustomer.address.district, currentCustomer.address.numberAndRoad),
             };
-            // selectedAddress = {
-            //     name: currentCustomer.name,
-            //     phone: currentCustomer.phone,
-            //     detail: `${currentCustomer.address.numberAndRoad} - ${currentCustomer.address.district} - ${currentCustomer.address.city}`
-            // };
         }
     } else if (selectedAddressOption.id === 'new-address-option') {
         const newAddressName = document.querySelector('.new-address-form .form-input[type="text"]')?.value || 'Chưa có tên';
@@ -825,8 +826,7 @@ function updateAddressSummary()
         selectedAddress = {
             name: newAddressName,
             phone: newAddressPhone,
-            address: new Address(province, district, newAddressDetail),
-            // detail: `${newAddressDetail} - ${district} - ${province}`
+            address: new Address(province, district, newAddressDetail)
         };
         newAddress = true;
     }
@@ -846,7 +846,7 @@ addressOptions.forEach(option => {
             newAddress = true;  
         } else if (option.id === 'default-address') {  
             // Kiểm tra người dùng đã nhập thông tin địa chỉ trước đó chưa  
-            if (currentCustomer.address === undefined) {  
+            if (!currentCustomer.address.city) {  
                 alert('Thông tin khách hàng của bạn chưa được lưu, vui lòng lưu lại hoặc nhập thông tin mới!');  
                 document.getElementById('new-address-option').checked = true; // Chuyển qua lựa chọn nhập địa chỉ mới  
                 newAddress = true;
@@ -881,47 +881,32 @@ function checkNewCustomerDetails()
         alert('Số điện thoại bắt đầu bằng 0 và có 10 số!');  
         return false;
     }
-    if (!currentCustomer.address) {  
-        currentCustomer.phone = phone;  
-        currentCustomer.name = fullname;  
-        currentCustomer.address = {  
-            city: province,  
-            district: district,  
-            numberAndRoad: ward  
-        };  
+    if (!currentCustomer.address.city) {  
         // //------------------------------
-        // // Lần đầu nhập thông tin: lấy thông tin đó đổ vào customerArray với username tương ứng
-        // console.log(currentCustomer.username);
-        // const matchingCustomer = customerArray.find(customer => (customer.username === currentCustomer.username));
-        // matchingCustomer.name = currentCustomer.name;
-        // matchingCustomer.phone = currentCustomer.phone;
-        // matchingCustomer.address = currentCustomer.address;
-        // saveCustomerArrayToStorage();   
+        // Lần đầu nhập thông tin: lấy thông tin đó đổ vào customerArray với username tương ứng
         // //------------------------------
+        const matchingCustomer = customerArray.find(customer => customer.username === currentCustomer.username);
+        console.log('Username: ' + matchingCustomer.username);
+        console.log('Before: ' + matchingCustomer.name);
+        if (matchingCustomer) {
+            matchingCustomer.name = fullname;
+            matchingCustomer.phone = phone;
+            matchingCustomer.address = {  
+                city: province,  
+                district: district,  
+                numberAndRoad: ward  
+            }; 
+            saveCustomerArrayToStorage();
+        } else {
+            console.error("Customer not found!");
+        }   
+        console.log('After: ' + matchingCustomer.name);
+        console.log(JSON.parse(localStorage.getItem('customerArray')));
     }
     //------------------------------
-    // Lần đầu nhập thông tin: lấy thông tin đó đổ vào customerArray với username tương ứng
-    console.log(JSON.parse(localStorage.getItem('customerArray')));
-    const matchingCustomer = customerArray.find(customer => customer.username === currentCustomer.username);
-    console.log('Username: ' + matchingCustomer.username);
-    console.log('Before: ' + matchingCustomer.name);
-    if (matchingCustomer) {
-        matchingCustomer.name = fullname;
-        matchingCustomer.phone = phone;
-        matchingCustomer.address = {  
-            city: province,  
-            district: district,  
-            numberAndRoad: ward  
-        }; 
-        saveCustomerArrayToStorage();
-    } else {
-        console.error("Customer not found!");
-    }   
-    console.log('After: ' + matchingCustomer.name);
     console.log(JSON.parse(localStorage.getItem('customerArray')));
     //------------------------------
-    document.getElementById('default-address').checked = true;
-    newAddressForm.style.display = 'none'; 
+    currentCustomer = customerArray.find(p => p.username === currentUsername);
     return true;  
 }    
 // Update thông tin địa chỉ khi nhập địa chỉ mới  
@@ -931,7 +916,8 @@ newAddressInputs.forEach(input => {
 });
 
 
-// Tạo Order và push vào orderArray khi người dùng hoàn tất việc mua hàng.
+
+//===== TẠO ORDER VÀ PUSH VÀO orderArray =====//
 function createOrder(){
     const customerId = currentCart.localStorageKey;
     const cartItemChecked = [];
@@ -964,15 +950,21 @@ function createOrder(){
 function completeUserPurchase()
 {
     let flag = true;
-    if(newAddress) flag=checkNewCustomerDetails();
-    if(newCreditCard && flag) flag=checkNewCard();
+    if(newAddress) flag=checkNewCustomerDetails();  //Nếu chọn điền thông tin mới thì kiểm tra điều kiện 
+    if(newCreditCard && flag) flag=checkNewCard();  //Nếu chọn điền thẻ mới thì kiểm tra đk thẻ mới
     
     if(flag)
     {
         createOrder();                  // Tạo order
         deleteAllProductIsPicked();     // Xóa các sản phẩm được pick, đã mua
         alert("Đặt hàng thành công!");
-        document.getElementById('modal-overlay').style.display = 'none';                                // Lưu toàn bộ thông tin người dùng 
+        document.getElementById('cash').checked = true;
+        cardPaymentForm.style.display = 'none';
+        document.getElementById('default-address').checked = true;
+        newAddressForm.style.display = 'none';
+        newAddress=false;
+        newCreditCard=false;
+        document.getElementById('modal-overlay').style.display = 'none';                                 // Lưu toàn bộ thông tin người dùng 
         
         console.log('User click Thanh toán');
         console.log("Current customer: ");

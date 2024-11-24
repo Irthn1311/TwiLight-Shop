@@ -1,8 +1,10 @@
-import {customerArray, checkExistedUsername, checkValidAccount, addCustomerToArray} from './common/data/customerArray.js';
-import {Cart } from './common/data/cart.js';
-import {productArray, allProducts} from './common/data/productArray.js';
+import {customerArray, checkExistedUsername, checkValidAccount, addCustomerToArray} from '../common/data/customerArray.js';
+import {Cart } from '../common/data/cart.js';
+import {allProducts} from '../common/data/productArray.js';
+import { orderArray } from '../common/data/orderArray.js';
 //-----
 let cart = undefined;
+let orderList = undefined;
 //-----
 
 var slideIndex = 0;
@@ -337,7 +339,108 @@ document.getElementById('log-out').addEventListener('click', function(event)
     TRANGCHU();
 
     updateCartCount();  // Cập nhật số lượng giỏ thành 0
-}); 
+});
+ 
+//===== HÀM LỊCH SỬ ĐƠN HÀNG =====//
+function donhang() {
+    const orderList = orderArray.filter(order => order.customerId === current_user);
+    document.querySelector('.modal-overlay-o').style.display = 'flex';
+    const modalHistory = document.querySelector('.modal-history-o');
+    modalHistory.style.display = 'flow';
+
+    modalHistory.innerHTML = `
+        <div class="modal-header-o">
+            <h2>Lịch Sử Đơn Hàng</h2>
+            <button class="modal-close-o" onclick="close_ls()">&times;</button>
+        </div>
+    `;
+
+    console.log(orderList);
+    
+    orderList.forEach((order, index) => {
+        const formattedDate = order.date.toLocaleDateString('vi-VN');
+        const statusClass = order.status.toLowerCase();
+        const statusText = order.status === 'UNPROCESSED' ? 'Chưa xử lý' : order.status;
+        
+        if (order.checkoutCart && order.checkoutCart.length > 0) {
+            const orderDetails = order.checkoutCart[0];
+            
+            const orderHTML = `
+                <div class="order-o highlight">
+                    <div class="order-header-o">
+                        <span>Ngày: ${formattedDate}</span>
+                        <span class="status-o ${statusClass}">${statusText}</span>
+                    </div>
+                    <div class="order-details-o">
+                        <strong>Tên sản phẩm:</strong> ${orderDetails.name}<br>
+                        <strong>Số lượng:</strong> ${orderDetails.quantity}<br>
+                        <strong>Giá:</strong> ${orderDetails.price.toLocaleString('vi-VN')}đ
+                    </div>
+                    <button class="btn-detail-o" data-order-index="${index}">Chi tiết</button>
+                </div>
+            `;
+            
+            modalHistory.innerHTML += orderHTML;
+        }
+    });
+
+    // Thêm event listener cho tất cả các nút chi tiết
+    const detailButtons = modalHistory.querySelectorAll('.btn-detail-o');
+    detailButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const orderIndex = this.getAttribute('data-order-index');
+            const order = orderList[orderIndex];
+            showOrderDetails(order);
+        });
+    });
+}
+
+function close_ls() {
+    document.querySelector('.modal-overlay-o').style.display = 'none';
+    document.querySelector('.modal-history-o').style.display = 'none';
+    document.querySelector('.modal-overlay-m').style.display = 'none';
+}
+
+
+function showOrderDetails(order) {
+    if (!order || !order.checkoutCart) return;
+
+    const modalOverlay = document.querySelector('.modal-overlay-m');
+    modalOverlay.style.display = 'flex';
+
+    const modalBox = document.querySelector('.modal-box-m');
+    modalBox.innerHTML = `
+        <button class="modal-close-btn-m">&times;</button>
+        <div class="cart-header-m">
+            <span>Sản phẩm</span>
+            <span>Cấu hình</span>
+            <span>Số lượng</span>
+            <span>Thành tiền</span>
+          
+        </div>
+        <div class="cart-items-container-m">
+            ${order.checkoutCart.map(item => `
+                <div class="cart-item-m">
+                    <div class="item-left-m">
+                        <img class="product-img-m" src="${item.img}">
+                        <div class="product-details-m">
+                            <span>${item.name}</span>
+                        </div>
+                    </div>
+                    <span class="category-m">${item.pb || ''}</span>
+                    <span class="quantity-m">${item.quantity}</span>
+                    <span class="total-price-m">${formatPrice(item.price)}</span>
+                </div>
+            `).join('')}
+        </div>
+    `;
+
+    // Thêm event listener cho nút đóng
+    const closeButton = modalBox.querySelector('.modal-close-btn-m');
+    closeButton.addEventListener('click', function() {
+        modalOverlay.style.display = 'none';
+    });
+}
 
 
 const ITEMS_PER_PAGE = 8;
@@ -790,7 +893,6 @@ function reloadPage(){
         
         if(current_user == '') TRANGCHU();  // Nếu chưa đăng nhập thì để trang mặc định
         else TAIKHOAN(current_user);        // Nếu đã đăng nhập thì để giao diện đã đăng nhập
-
         updateCartCount();  // Cập nhật số lượng giỏ hàng tùy vào user
     });
 }
@@ -853,6 +955,9 @@ window.renderProducts = renderProducts;
 window.renderPagination = renderPagination;
 window.changePage = changePage;
 window.updateCartCount = updateCartCount;
+window.donhang = donhang;
+window.showOrderDetails = showOrderDetails;
+window.close_ls = close_ls;
 //-------------------------------------------
 
 

@@ -2,7 +2,7 @@ import { allProducts } from '../common/data/productArray.js'; // Import mảng s
 import { customerArray } from '../common/data/customerArray.js'; // Import class Customer và Address từ file customerArray.js
 import { orderArray, addOrderToArray, filterOrderByStatus, filterOrdersBetweenTwoDate, sortOrderByDistrict, addTestOrderToArray, createStatisticsProductArray, createStatisticsCustomerArray } from '../common/data/orderArray.js'; 
 
-
+// LOGIN
 document.addEventListener('DOMContentLoaded', function() {
     const loginPopup = document.getElementById('login-popup');
     const overlay = document.getElementById('overlay');
@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', function() {
     overlay.style.display = 'block';
 
 });
-
 function login() {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
@@ -1498,7 +1497,7 @@ function isValidDateRange(start, end) {
 
 
 
-window.login = login;
+
 window.showDetailProductBox = showProductDetails;
 window.closeDetailProductBox = closeDetailProductBox;
 window.showChangeProductBox = showChangeProductBox;
@@ -1519,6 +1518,8 @@ window.displayTopCustomer = displayTopCustomer;
 window.showOrderDetails = showOrderDetails;
 window.closeDetailOrderBox = closeDetailOrderBox;
 window.updateSelectColor = updateSelectColor;
+
+window.login = login;
 // //--------------KHÔNG CẦN CODE NÀY: WINDOW... CHỈ ÁP DỤNG CHO DOM KHI LOAD HTML------------------
 // window.changeActiveSideBar = changeActiveSideBar;
 // window.zoomInSideBar = zoomInSideBar;

@@ -27,7 +27,7 @@ export class Address {
     // Lấy ra district field với từ 'Quận' thêm vào
    
 }
-class InfoCard {
+export class InfoCard {
     cardNumber = '';
     expiryDate = '';
     cvv = '';

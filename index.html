@@ -112,6 +112,9 @@
                     <span class="header__navbar-user-name"></span>
                     <ul class="header__navbar-user-menu">
                         <li class="header__navbar-user-item header__navbar-user-item--separate">
+                            <a href="#" id="don-hang" onclick="donhang();">Đơn hàng</a>
+                        </li>
+                        <li class="header__navbar-user-item header__navbar-user-item--separate">
                             <a href="#" id="log-out">Đăng xuất</a>
                         </li>
                     </ul>
@@ -363,6 +366,23 @@
     <div class="modal-item2 modal__overlay-item" id="hienthi">
         <!--Hiển thị thông tin chi tiết sản phẩm trên Javascript-->
     </div>
+
+
+
+    <!-- LỊCH SỬ ĐƠN HÀNG -->
+    <div class="modal-overlay-o">
+        <div class="modal-history-o">
+            <!-- Hiển thị qua hàm donhang trên JAVASCRIPT-->
+        </div>
+    </div>
+
+    <!-- CHI TIẾT SP CỦA LỊCH SỬ ĐƠN HÀNG -->
+    <div class="modal-overlay-m">
+        <div class="modal-box-m">
+            <!-- Hiển thị qua hàm showOrderDetails trên JAVASCRIPT-->
+        </div>
+    </div>
+
     <footer>
         <div class="footer-box">
             <div class="grid3">
@@ -422,8 +442,6 @@
                 </div>
             </div>
         </div>
-        <a href="../twilight_admin_K23_2024/index_admin.html">Go to Admin Page</a>
-
     </footer>
 
     <script type="module" src="./javascript.js"></script>

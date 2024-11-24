@@ -23,10 +23,12 @@
             <!-- <a href="#" class="brand">
                 <img src="./img/logo.jpg" alt="Admin">
             </a> -->
-            <a href="#" class="brand">
-                <img src="./img/twilight-logo.png" alt="Logo">
-                <!-- <span class="text">Admin</span> -->
-            </a>
+            <div class="logo-o">
+                <a href="#" class="brand">
+                    <img src="./img/twilight-logo.png" alt="Logo">
+                    <!-- <span class="text">Admin</span> -->
+                </a>
+            </div>
             <div class="line"></div>
             <ul class="side-menu">
                 <li id="sidebar__dashboard" class="item--active">
@@ -491,26 +493,26 @@
                     <!-- POP-UP XEM CHI TIẾT ORDER -->
                     <div id="modal-detailorder" class="modal">
                         <div id="detailorder">
-                                    <button class="close-pop" id="close-detailorder">+</button>
-                                    <h2>Chi tiết đơn hàng</h2>
-                                    <div class="order-content">
-                                        <div class="info">
-                                            <p>Tên khách hàng: <span id="detail-order-customername"></span></p>
-                                            <p>Số điện thoại: <span id="detail-order-phone"></span></p>
-                                            <p>Địa chỉ: <span id="detail-order-address"></span></p>
-                                            <p>Thời điểm đặt hàng: <span id="detail-date"></span></p>
-                                            <p>Trạng thái: <span id="detail-status"></span></p>                        
-                                        </div>
-                                    <div class="checkout-section">
-                                        <div class="checkout-info">
-                                            <p>Sản phẩm đã đặt:</p>
-                                            <div id="detail-checkoutCart"></div>
-                                        </div>
-                                        <div class="checkout-total-payment">
-                                            <p>Tổng tiền: <span id="detail-total-payment"></span></p>
-                                        </div>
+                            <button class="close-pop" id="close-detailorder">+</button>
+                            <h2>Chi tiết đơn hàng</h2>
+                            <div class="order-content">
+                                <div class="info">
+                                    <p>Tên khách hàng: <span id="detail-order-customername"></span></p>
+                                    <p>Số điện thoại: <span id="detail-order-phone"></span></p>
+                                    <p>Địa chỉ: <span id="detail-order-address"></span></p>
+                                    <p>Thời điểm đặt hàng: <span id="detail-date"></span></p>
+                                    <p>Trạng thái: <span id="detail-status"></span></p>                        
+                                </div>
+                                <div class="checkout-section">
+                                    <div class="checkout-info">
+                                        <p>Sản phẩm đã đặt:</p>
+                                        <div id="detail-checkoutCart"></div>
+                                    </div>
+                                    <div class="checkout-total-payment">
+                                        <p>Tổng tiền: <span id="detail-total-payment"></span></p>
                                     </div>
                                 </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -626,6 +628,12 @@
                             
                         </div>
                     </div>
+
+                    <div id="modal-detailStatisticProduct" class="modal">
+                            <div class="detailStatisticProduct-content">
+                                <!-- Nội dung popup sẽ được tạo động -->
+                            </div>
+                    </div>
                 </div>
 
 
@@ -634,11 +642,9 @@
 
             </main>
         </section>
-        <a href="../twilight-store/index.html">Go to End-User Page</a>
-
     </div>
-    <!-- <script src="./script.js"></script>  -->
     <script type="module" src="./script.js"></script> 
+    <!-- <script type="module" src="./script.js"></script>  -->
 </body>
 </html>
 

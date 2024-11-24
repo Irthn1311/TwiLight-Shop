@@ -80,25 +80,25 @@ export class Cart {
      * Không: thêm product mới vào cart
      */
     addToCart(product){
-        // Tìm product với productId và phiên bản tương ứng trong cart
+        // Tìm product với name và phiên bản tương ứng trong cart
         let matchingProduct;
         this.cartItem.forEach((item) => {
-            if(item.productId === product.productId && item.pb === product.pb){
+            if(item.name === product.name && item.pb === product.pb){
                 console.log(item.pb);
                 matchingProduct = item;
             }
         });
-        // Có sản phẩm với productId và phiên bản tương ứng
+        // Có sản phẩm với name và phiên bản tương ứng
         // thì tăng quantity, ngược lại: add
         if(matchingProduct){
             matchingProduct.quantity += product.quantity;
             // matchingProduct.quantity++;
-            console.log('Product ' + matchingProduct.productId + ' existed, increase quantity.');
+            console.log('Product ' + matchingProduct.name + ' existed, increase quantity.');
         } else {
             this.cartItem.push(
                 product
                 // {
-                //     productId: product.productId,
+                //     name: product.name,
                 //     quantity: product.quantity,
                 //     isPicked: false,
                 //     //--------------
@@ -113,7 +113,7 @@ export class Cart {
                 //     f: product.f,
                 // }
             );
-            console.log('Added product ' + product.productId + ' to cart of ' + this.localStorageKey);
+            console.log('Added product ' + product.name + ' to cart of ' + this.localStorageKey);
         }
         // Thay đổi counterProducts:
         this.counterProducts += product.quantity;
@@ -154,7 +154,7 @@ export class Cart {
     }
 
     /** Chọn các product để mua:
-     * Arg: productId
+     * Arg: name
      * Thay đổi trạng thái của isPicked -> true (được chọn)
      */
     markProductToPay(productName, productVersion){
