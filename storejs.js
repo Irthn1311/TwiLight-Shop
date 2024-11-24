@@ -1,6 +1,6 @@
-import {customerArray, checkExistedUsername, checkValidAccount, addCustomerToArray, saveCustomerArrayToStorage, Address, InfoCard} from '../common/data/customerArray.js';
-import {Cart } from '../common/data/cart.js';
-import {orderArray, saveOrderArrayToStorage, addOrderToArray} from '../common/data/orderArray.js'
+import {customerArray, checkExistedUsername, checkValidAccount, addCustomerToArray, saveCustomerArrayToStorage, Address, InfoCard} from './common/data/customerArray.js';
+import {Cart } from './common/data/cart.js';
+import {orderArray, saveOrderArrayToStorage, addOrderToArray} from './common/data/orderArray.js'
 /////
 let currentCart = undefined;
 let currentUsername;

@@ -1,7 +1,7 @@
-import {customerArray, checkExistedUsername, checkValidAccount, addCustomerToArray} from '../common/data/customerArray.js';
-import {Cart } from '../common/data/cart.js';
-import {allProducts} from '../common/data/productArray.js';
-import { orderArray } from '../common/data/orderArray.js';
+import {customerArray, checkExistedUsername, checkValidAccount, addCustomerToArray} from './common/data/customerArray.js';
+import {Cart } from './common/data/cart.js';
+import {allProducts} from './common/data/productArray.js';
+import { orderArray } from './common/data/orderArray.js';
 //-----
 let cart = undefined;
 let orderList = undefined;
