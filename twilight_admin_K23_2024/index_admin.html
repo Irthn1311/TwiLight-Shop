@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en" lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="../common/data/utilities_style.css">
+
+    <title>Twilight Store | Admin Viewport</title>
+    <link rel="icon" href="./img/twilight-logo-icon.png">
+    <link rel="stylesheet" href="../accessts/fonts/fontawesome-free-6.6.0-web/fontawesome-free-6.6.0-web/css/all.min.css">
+
+</head>
+<body>
+    <div id="overlay"></div>
+    <div id="login-popup">
+        <h2>Đăng nhập quản trị hệ thống</h2>
+        <p>Vui lòng đăng nhập để vào trang quản trị</p>
+        <input type="text" id="username" placeholder="Vui lòng nhập tài khoản..." required>
+        <input type="password" id="password" placeholder="Vui lòng nhập mật khẩu..." required>
+        <button onclick="login()">Đăng nhập</button>
+        <p id="error-message" style="color: red; display: none;">Sai tài khoản hoặc mật khẩu</p>
+    </div>
+    <div id="wrap">
+        <section id="sidebar">
+            
+            <div class="logo-o">
+                <a href="#" class="brand">
+                    <img src="./img/twilight-logo.png" alt="Logo">
+                    <!-- <span class="text">Admin</span> -->
+                </a>
+            </div>
+            <div class="line"></div>
+            <ul class="side-menu">
+                <li id="sidebar__dashboard" class="item--active">
+                    <a >
+                        <!-- icon|logo -->
+                        <img class="side-menu__icon" src="./img/dashboard-color-24.png" alt="Dashboard">
+                        <span class="text">Dashboard</span>
+                    </a>
+                </li>
+                <li id="sidebar__products">
+                    <a >
+                        <!-- icon|logo -->
+                        <img class="side-menu__icon" src="./img/mobile-color-24.png" alt="Phone">
+                        <span class="text">Sản phẩm</span>
+                    </a>
+                </li>
+                <li id="sidebar__customers">
+                    <a>
+                        <!-- icon|logo -->
+                        <img class="side-menu__icon" src="./img/group-color-24.png" alt="Customer">
+                        <span class="text">Khách hàng</span>
+                    </a>
+                </li>
+                <li id="sidebar__orders">
+                    <a>
+                        <!-- icon|logo -->
+                        <img class="side-menu__icon" src="./img/receipt-color-24.png" alt="Receipt">
+                        <span class="text">Đơn hàng</span>
+                    </a>
+                </li>
+                <li id="sidebar__statistics">
+                    <a>
+                        <!-- icon|logo -->
+                        <img class="side-menu__icon" src="./img/statistics-color-24.png" alt="Receipt">
+                        <span class="text">Thống kê</span>
+                    </a>
+                </li>
+
+            </ul>
+        </section>
+        <section id="content">
+            <!-- MAIN -->
+            <main>
+                
+                <!-- DASHBOARD PAGE -->
+                <div class="main-item" id="main__dashboard">
+                    <nav>
+                        <img id="hidden-sidebar-btn" src="./img/menu-color-24.png" alt="Menu">
+                        <div id="site-name">Admin Dashboard</div>
+
+                    </nav> 
+                    <div class="products-orders">
+                        <div class="products">
+                            <ul class="box-product">
+                                <li class="general">
+                                    <img class="product__icon icon " src="./img/sanpham.png" alt="Product">
+                                    <span class="product__text text"> 
+                                        <h1>Sản phẩm</h1>
+                                    </span>
+                                </li>
+                                <li class="apple">
+                                    <img class="product__icon icon" src="./img/apple.png" alt="Apple">
+                                    <span class="product__text text"> 
+                                        <h2>20</h2>
+                                        <p>Apples</p>
+                                    </span>
+                                </li>
+                                <li class="samsung">
+                                    <img class="product__icon icon" src="./img/samsung.png" alt="Samsung">
+                                    <span class="product__text text"> 
+                                        <h2>30</h2>
+                                        <p>Samsung</p>
+                                    </span>
+                                </li>
+                                <li class="xiaomi">
+                                    <img class="product__icon icon" src="./img/xiaomi.png" alt="Xiaomi">
+                                    <span class="product__text text"> 
+                                        <h2>45</h2>
+                                        <p>Xiaomi</p>
+                                    </span>
+                                </li>
+                                <li class="bphone">
+                                    <img class="product__icon icon" src="./img/bphone.png" alt="BPhone">
+                                    <span class="product__text text"> 
+                                        <h2>15</h2>
+                                        <p>BPhone</p>
+                                    </span>
+                                </li>
+                                <li class="vivo">
+                                    <img class="product__icon icon" src="./img/vivologo.png" alt="BPhone">
+                                    <span class="product__text text"> 
+                                        <h2>15</h2>
+                                        <p>Vivo</p>
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="order">
+                            <ul class="box-order">
+                                <li class="general">
+                                    <img class="order__icon icon" src="./img/order_bill.png" alt="Order">
+                                    <span class="order__text text"> 
+                                        <h1>Đơn hàng</h1>
+                                    </span>
+                                </li>
+                                <li class="cart">
+                                    <img class="order__icon icon " src="./img/order_shopping-cart.png" alt="Cart">
+                                    <span class="order__text text"> 
+                                        <h2>20</h2>
+                                        <p>Giỏ hàng</p>
+                                    </span>
+                                </li>
+                                <li class="delivery">
+                                    <img class="order__icon icon" src="./img/order_delivery-truck.png" alt="Delivery">
+                                    <span class="order__text text"> 
+                                        <h2>20</h2>
+                                        <p>Đang giao</p>
+                                    </span>
+                                </li>
+                                <li class="success">
+                                    <img class="order__icon icon" src="./img/order_recieved.png" alt="Success">
+                                    <span class="order__text text"> 
+                                        <h2>30</h2>
+                                        <p>Hoàn thành</p>
+                                    </span>
+                                </li>
+                                <li class="failed">
+                                    <img class="order__icon icon" src="./img/order_failed.png" alt="Failed">
+                                    <span class="order__text text"> 
+                                        <h2>45</h2>
+                                        <p>Hủy đơn</p>
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+            
+                    <div class="customers">
+                        <li class="customer__chart--name">
+                            <img class="customer__icon icon" src="./img/customer.png" alt="Customer">
+                            <span class="customer__text text"> 
+                            </span>
+                        </li>
+                        <div class="customer__chart">
+                            <div class="item item--click" style="--counter: 20" >200</div>
+                            <div class="item item--purchase" style="--counter: 12" >120</div>
+                            <div class="item item--click" style="--counter: 35" >350</div>
+                            <div class="item item--purchase" style="--counter: 27" >270</div>
+                            <div class="item item--click" style="--counter: 26" >260</div>
+                            <div class="item item--purchase" style="--counter: 17" >170</div>
+                            <div class="item item--click" style="--counter: 40" >400</div>
+                            <div class="item item--purchase" style="--counter: 30" >300</div>
+                            <div class="item item--click" style="--counter: 41" >410</div>
+                            <div class="item item--purchase" style="--counter: 25" >250</div>
+        
+                        </div>  
+                        
+                        <div class="customer__note">
+                                <li>
+                                    <img class="note_icon--click icon" src="./img/customer_click.png" alt="Click">
+                                    <span class="note__text text"> 
+                                        Click vào website
+                                    </span>
+                                </li>
+                                <li>
+                                    <img class="note_icon--purchase icon" src="./img/customer_order.png" alt="Order">
+                                    <span class="note__text text"> 
+                                        Mua hàng
+                                    </span>
+                                </li>
+                        </div>
+                            
+                    </div>
+                </div>
+
+                <!-- PRODUCTS PAGE -->
+                <div class="main-item" id="main__products">
+                    <nav>
+                        <img id="hidden-sidebar-btn" src="./img/menu-color-24.png" alt="Menu">
+                        <div id="site-name">Quản lý Sản Phẩm</div>
+
+                    </nav>
+                    <div id="container">
+                        <!-- PRODUCTS TABLE -->
+                        <div id="leftsection">
+                            <div id="table_list">
+                                <table class="table-content">
+                                    <thead class="table-content__header">
+                                        
+                                    </thead>
+                                    <tbody id="product-table-content__body">
+                                        <!-- Sản Phẩm ở đây -->
+                                    </tbody>
+                                </table>
+                                <div id="pagination-products"></div>
+                            </div>
+                        </div>
+                        <div id="rightsection">
+                            
+                            <div class="subsection">
+                                <h2>THÊM SẢN PHẨM</h2>
+                                <form id="add-product-form">
+                                    <label for="new-product-name">Tên sản phẩm</label>
+                                    <input type="text" id="new-product-name" placeholder="Nhập tên sản phẩm...">
+                                    <label for="new-brand">Thương hiệu</label>
+                                    <select id="new-brand">
+                                        <option value="APPLE">APPLE</option>
+                                        <option value="SAMSUNG">SAMSUNG</option>
+                                        <option value="XIAOMI">XIAOMI</option>
+                                        <option value="Bphone">BPHONE</option>
+                                        <option value="VIVO">VIVO</option>
+                                    </select>
+                                     <div class="short_info">
+                                        <label class="short-label" for="new-number-of-versions">Số phiên bản</label>
+                                        <input type="number" class="short-input" id="new-number-of-versions" placeholder="Nhập số lượng phiên bản..." min="1" max="5" required>
+                                    </div>
+                                    <div id="versions-container"></div>
+                                    <h3>Thông số kỹ thuật</h3>
+
+                                    <div class="short_info">
+                                        <label class="short-label" for="new-chip">Vi xử lý</label>
+                                        <input type="text" id="new-chip" class="short-input" placeholder="Nhập vi xử lý...">
+                                    </div>
+                                    <div class="short_info">
+                                        <label class="short-label" for="new-pin">Dung lượng pin</label>
+                                        <input type="text" id="new-pin" class="short-input" placeholder="Nhập dung lương pin...">
+                                    </div>
+                                    
+                                    <div class="short_info">
+                                        <label class="short-label" for="new-size">Kích thước màn hình</label>
+                                        <input type="text" id="new-size" class="short-input" placeholder="Nhập kích thước màn hình...">
+                                    </div>
+                                    
+                                    <div class="short_info">
+                                        <label class="short-label" for="new-f">Tần số quét</label>
+                                        <input type="text" id="new-f" class="short-input" placeholder="Nhập tần số quét...">
+                                    </div>
+                                    <div class="image-upload-container">
+                                        <div class="image-upload-container__info">
+                                            <label for="new-image-upload">Ảnh</label>
+                                            <input type="file" id="new-image-upload" accept="image/*" onchange="previewImage(event)">
+                                        </div>
+                                        <div class="product-image-container">
+                                            <img id="img-preview" src="./img-prd/img-add2.png" alt="Product Image">
+                                        </div>
+                                    </div>
+                                    <div class="buttons">
+                                        <button type="reset" class="delete-btn" id="reset-button">Xóa</button>
+                                        <button type="submit" class="add-btn">Thêm</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="subsection">
+                                <h2>TÌM KIẾM SẢN PHẨM</h2>
+                                <form>
+                                    <br>
+                                    <label for="product-name">Tên sản phẩm</label>
+                                    <input type="text" id="product-name" placeholder="Nhập tên sản phẩm...">
+                                    <label for="brand">Thương hiệu</label>
+                                    <select id="brand">
+                                        <option value="all">TẤT CẢ</option>
+                                        <option value="APPLE">APPLE</option>
+                                        <option value="SAMSUNG">SAMSUNG</option>
+                                        <option value="XIAOMI">XIAOMI</option>
+                                        <option value="BPHONE">BPHONE</option>
+                                        <option value="VIVO">VIVO</option>
+                                    </select>
+                                </form>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <!-- POP-UP SỬA SẢN PHẨM -->
+                    <div id="modal-changeproduct" class="modal">
+                        <div id="changeproduct">
+                            <button class="close-pop" id="close-changeproduct">+</button>
+                            <div class="image">
+                                <img id="imgbefore" alt="Ảnh trước">
+                                <img id="imgafter" alt="Ảnh sau">
+                            </div>
+                            <div class="info">
+                                <label for="edit-name-product">Tên sản phẩm</label>
+                                <input type="text" id="edit-name"><br>
+                                <label for="edit-price">Giá</label>
+                                <input type="text" id="edit-price"><br>
+                                <input type="file" id="edit-image-upload" onchange="changeImagePreview(this)">
+                            </div>
+                            <button id="save-product" class="save">Lưu chỉnh sửa</button>
+                        </div>
+                    </div>
+                    <!-- POP-UP XEM CHI TIẾT SẢN PHẨM -->
+                    <div id="modal-detailproduct" class="modal">
+                        <div id="detailproduct">
+                            <button class="close-pop" id="close-detailproduct">+</button>
+                            <div class="product-details">
+                                <img id="detail-img" alt="Hình ảnh sản phẩm">
+                                <div>
+                                    <h1>Thông số điện thoại</h1>
+                                    <p>Tên sản phẩm: <span id="detail-name"></span></p>
+                                    <p>Thương hiệu: <span id="detail-brand"></span></p>
+                                    <div id="detail-versions"></div>
+                                    <p>Vi xử lý: <span id="detail-chip"></span></p>
+                                    <p>Dung lượng pin: <span id="detail-pin"></span></p>
+                                    <p>Kích thước màn hình: <span id="detail-size"></span></p>
+                                    <p>Tần số quét: <span id="detail-f"></span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CUSTOMERS PAGE -->
+                <div class="main-item" id="main__customers">
+                    <nav>
+                        <img id="hidden-sidebar-btn" src="./img/menu-color-24.png" alt="Menu">
+                        <div id="site-name">Quản lý Khách Hàng</div>
+
+                    </nav>
+                    <div id="container">
+                        <!-- CUSTOMERS TABLE -->
+                        <div id="leftsection">
+                            <div id="table_list">
+                                <table class="table-content">
+                                    <thead class="table-content__header">
+                                        <tr>
+                                            <th>NO.</th>
+                                            <th>Tên đăng nhập</th>
+                                            <th>Mật khẩu</th>
+                                            <th>Số điện thoại</th>
+                                            <th>Địa chỉ</th>
+                                            <th>Hành động</th>
+                                            <th>Trạng thái</th>
+                                        </tr>
+                                    
+                                    </thead>
+                                    <tbody id="customer-table-content__body">
+                                        <!-- Khách hàng ở đây -->
+                                    </tbody>
+                                </table>
+                                <div id="pagination-customers"></div>
+                            </div>
+                        </div>
+                        <div id="rightsection">
+                            
+                            <div class="subsection">
+                                <h2>THÊM KHÁCH HÀNG</h2>
+                                <form id="add-customer-form">
+                                    <br>
+                                    <label for="new-customer-name">Tên đăng nhập</label>
+                                    <input type="text" id="new-customer-name" placeholder="Nhập username...">
+                                    <label for="new-customer-password">Mật khẩu</label>
+                                    <input type="text" id="new-customer-password" placeholder="Nhập mật khẩu...">
+                                    <label for="new-customer-phone">Số điện thoại</label>
+                                    <input type="text" id="new-customer-phone" placeholder="Nhập số điện thoại...">
+                                    <label for="new-customer-address">Địa chỉ</label>
+                                    <input type="text" id="new-customer-address" placeholder="Nhập địa chỉ...">
+                                    <div class="buttons">
+                                        <button type="reset" class="delete-btn">Xóa</button>
+                                        <button type="submit" class="add-btn">Thêm</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- POP-UP SỬA KHÁCH HÀNG -->
+                        <div id="modal-changecustomer" class="modal">
+                            <div id="changecustomer">
+                                <button class="close-pop" id="close-changecustomer">+</button>
+                                <div class="info-customer">
+                                    <label for="edit-username">Tên đăng nhập</label>
+                                    <input type="text" id="edit-username"><br>
+                                    <label for="edit-password">Mật khẩu</label>
+                                    <input type="text" id="edit-password"><br>
+                                    <label for="edit-phone">Số điện thoại</label>
+                                    <input type="text" id="edit-phone"><br>
+                                    <label for="edit-address">Địa chỉ</label>
+                                    <input type="text" id="edit-address"><br>
+                                </div>
+                                <button id="save-customer" class="save">Lưu chỉnh sửa</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <!-- ORDERS PAGE -->
+                <div class="main-item" id="main__orders">
+                    <nav>
+                        <img id="hidden-sidebar-btn" src="./img/menu-color-24.png" alt="Menu">
+                        <div id="site-name">Quản lý Đơn Hàng</div>
+
+                    </nav>
+                    <div id="container">
+                        <!-- ORDER TABLE -->
+                        <div id="leftsection">
+                            <div id="table_list">
+                                <table class="table-content">
+                                    <thead class="table-content__header">
+                                        <tr>
+                                            <th>Khách hàng</th>
+                                            <th>Tên người nhận</th>
+                                            <th>Số điện thoại</th>
+                                            <th>Thời điểm đặt hàng</th>
+                                            <th>Địa chỉ</th>
+                                            <th>Chi tiết</th>
+                                            <th>Tình trạng</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="orders-table-content__body">
+                                        <!-- Thêm các dòng sản phẩm khác ở đây -->
+                                    </tbody>
+                                </table>
+                                <div id="pagination-orders"></div>
+                            </div>
+                        </div>
+                        <div id="rightsection">
+                            <div class="filter-section">
+                                <h2 class="main-title">LỌC ĐƠN HÀNG</h2>
+                                <form id="filter-date-form">
+                                    <div class="filter-group">
+                                        <h3 class="filter-title">Thời gian</h3>
+                                        <div class="date-group">
+                                            <label class="date-label" for="date-start">Từ ngày</label>
+                                            <input type="date" id="order__date-start" class="date-input" required>
+                                        </div>
+                                        <div class="date-group">
+                                            <label class="date-label" for="date-end">Đến ngày</label>
+                                            <input type="date" id="order__date-end" class="date-input" required>
+                                        </div>
+                                        <button type="submit" id="filter__date-btn">Lọc</button>
+                                    </div>
+                                </form>
+                                
+                                <div class="filter-group">
+                                    <h3 class="filter-title">Tình trạng</h3>
+                                    <select id="filter__status-selection" onchange="displayOrderByStatus()">
+                                        <option value="ALL">All</option>
+                                        <option value="UNPROCESSED">Chưa xử lý</option>
+                                        <option value="CONFIRMED">Đã xác nhận</option>
+                                        <option value="SUCCEEDED">Thành công</option>
+                                        <option value="FAILED">Thất bại</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="filter-group">
+                                    <button type="button" class="btn" id="order__sort-by-district">Sắp xếp theo quận</button>
+                                    <button type="button" class="btn reset-btn" id="order__reset-filter-btn">Reset bộ lọc</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- POP-UP XEM CHI TIẾT ORDER -->
+                    <div id="modal-detailorder" class="modal">
+                        <!-- <div id="detailorder">
+                            <button class="close-pop" id="close-detailorder">+</button>
+                            <h2>Chi tiết đơn hàng</h2>
+                            <div class="order-content">
+                                <div class="info">
+                                    <p>Tên khách hàng: <span id="detail-order-customername"></span></p>
+                                    <p>Số điện thoại: <span id="detail-order-phone"></span></p>
+                                    <p>Địa chỉ: <span id="detail-order-address"></span></p>
+                                    <p>Thời điểm đặt hàng: <span id="detail-date"></span></p>
+                                    <p>Trạng thái: <span id="detail-status"></span></p>                        
+                                </div>
+                                <div class="checkout-section">
+                                    <div class="checkout-info">
+                                        <p>Sản phẩm đã đặt:</p>
+                                        <div id="detail-checkoutCart"></div>
+                                    </div>
+                                    <div class="checkout-total-payment">
+                                        <p>Tổng tiền: <span id="detail-total-payment"></span></p>
+                                    </div>
+                                    <div class="order-status-select">
+                                        <p>Tình trạng đơn hàng: 
+                                            <span>
+                                                <select class="order-status-select" id="order-status__selection-${index}" onchange=" updateSelectColor(this);">
+                                                    <option value="UNPROCESSED">Chưa xử lý</option>
+                                                    <option value="CONFIRMED">Đã xác nhận</option>
+                                                    <option value="SUCCEEDED">Thành công</option>
+                                                    <option value="FAILED">Thất bại</option>
+                                                </select>
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+
+                <!-- STATISTICS PAGE -->
+                <div class="main-item" id="main__statistics">
+                    <nav>
+                        <img id="hidden-sidebar-btn" src="./img/menu-color-24.png" alt="Menu">
+                        <div id="site-name">Thống kê</div>
+                        <!-- <div id="logout">
+                            <img src="./img/log-out-color-24.png" alt="Logout">
+                            <div id="user-mode">User</div>
+                        </div> -->
+                    </nav>
+                    <!-- Thống kê theo khoảng thời gian (ngày -> ngày) -->
+                    <div class="period">
+                        <div class="from-time">
+                            <span>Từ ngày:</span>
+                            <input type="date" name="" id="statistics__date-start" >
+                        </div>
+                        <div class="to-time">
+                            <span>Đến ngày:</span>
+                            <input type="date" name="" id="statistics__date-end" >
+                        </div>
+                        <div id="statistics__date-filter">
+                            <button type="button" id="statistics__date-btn">Lọc theo ngày</button>
+                            <button type="button" type="reset" class="reset-btn" id="statistics__date-reset-btn">Reset</button>
+                        </div>
+                    </div>
+
+                    <!-- Theo sản phẩm -->
+                    <div id="container">
+                        <!-- STATISTICS TABLE -->
+                        <div id="leftsection">
+                            <div id="table_list">
+                                <div class="table-content__til">
+                                    <th>DOANH THU THEO SẢN PHẨM</th>
+                                </div>
+                                <table class="table-content">
+                                    <thead class="table-content__header">
+                                        <tr>
+                                            <th>Tên sản phẩm</th>
+                                            <th>Doanh số</th>
+                                            <th>Doanh thu</th>
+                                            <th>Xem hóa đơn</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="statistics-product-table__body">
+                                        
+                                    </tbody>
+                                </table>
+                                <div id="pagination-statistics-product"></div>
+                            </div>
+                        </div>
+                        <div id="rightsection">
+                            <div class="subsection">
+                                <!-- Tổng doanh thu của các sản phẩm -->
+                                <div class="total-revenue">
+                                    <h2>Tổng doanh thu</h2>
+                                    <div id="statistics-product__total-revenue"></div>
+                                </div>
+                            </div>
+                            <div class="subsection">
+                                <!-- Chỉ ra sản phẩm chạy nhất và ế nhất (theo số lượng bán ra (doanh số)) -->
+                                <div id="statistics-product__special-product">
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    <!-- Theo khách hàng -->
+                    <div id="container">
+                        <!-- CUSTOMER TABLE -->
+                        <div id="leftsection">
+                            <div id="table_list">
+                                <div class="table-content__til">
+                                    <th>DOANH THU KHÁCH HÀNG</th>
+                                </div>
+                                <table class="table-content">
+                                    <thead class="table-content__header">
+                                        <tr>
+                                            <th>Username</th>
+                                            <th>Số điện thoại</th>
+                                            <th>Doanh thu</th>
+                                            <th>Xem hóa đơn</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="statistics-customer-table__body">
+                                    </tbody>
+                                </table>
+                                <div id="pagination-statistics-customer"></div>
+                            </div>
+                        </div>
+                        <div id="rightsection">
+                            <div class="subsection">
+                                <!-- Tổng doanh thu của khách hàng -->
+                                <div class="total-revenue">
+                                    <h2>Tổng doanh thu</h2>
+                                    <div id="statistics-customer__total-revenue">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="subsection">
+                                <div class="top-customers">
+                                    <h2>Top khách hàng</h2>
+                                    <div class="top-row">
+                                        <label class="top-size">Top:</label>
+                                        <input type="number" id="statistics-customer__top-input">
+                                    </div>
+                                </div>
+                            </div>                            
+                            
+                        </div>
+                    </div>
+
+                    <div id="modal-detailStatistic" class="modal">
+                            <div class="detailStatistic-content">
+                                <!-- Nội dung popup sẽ được tạo động -->
+                            </div>
+                    </div>
+                </div>
+            </main>
+        </section>
+    </div>
+    <div id="custom-alert"></div>
+    <script type="module" src="./script.js"></script> 
+    <!-- <script type="module" src="./Test_script.js"></script>  -->
+</body>
+</html>
+

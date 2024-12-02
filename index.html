@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--TAB HIỆN THÔNG BÁO-->
+    <title>Twilight Store | Phone Agency</title>
+    <link rel="icon" href="./accessts/img/twilight-logo-icon.png">
+    
+    <!--LINK ĐẾN CÁC FILE CSS / ICON-FONT-->
+    <link rel="stylesheet" href="./accessts/css/main.css">
+    <link rel="stylesheet" href="./accessts/fonts/fontawesome-free-6.6.0-web/fontawesome-free-6.6.0-web/css/all.min.css">
+    <link rel="stylesheet" href="./common/data/utilities_style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="grid1">
+
+        <!--LOGO WEB-->
+        <div class="header__logo">
+            <a href="./index.html" class="header__logo-link">
+                <img src="./accessts/img/twilight-logo.png" alt="" class="header__logo-img">
+            </a>
+        </div>
+
+        <!--KẾT NỐI-->
+        <ul class="header__navbar-list-1" id="ketnoi">
+            <li class="header__navbar-item-1">
+                <span class="header__navbar-title-no-pointer">Kết nối</span>
+                <a href="https://www.facebook.com/" class="header__navbar-icon-link">
+                    <i class="header__navbar-icon fa-brands fa-facebook"></i>
+                </a>
+                <a href="https://www.instagram.com/" class="header__navbar-icon-link">
+                    <i class="header__navbar-icon fa-brands fa-instagram"></i>
+                </a>
+            </li>
+        </ul>
+
+        <!--THANH TÌM KIẾM-->
+        <form class="search-form">
+            <div class="search-input-wrapper">
+                <input type="text" class="search-input" placeholder="Tìm kiếm sản phẩm của Twilight Store">
+                <button class="header__search-btn">
+                    <i class="header__search-btn-icon fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+        </form>
+    
+
+        <!--PHẦN THÔNG BÁO - ĐĂNG NHẬP - GIỎ HÀNG-->
+        <nav class="cart-nav">
+            <ul class="nav-list">
+                <!--PHẦN THÔNG BÁO-->
+                <li class="nav-item nav-item-noti">
+                    <div href="/my-items" class="nav-link-noti" aria-haspopup="true">
+                        <i class="icon-noti fa-regular fa-bell"></i>
+                        <div class="text-noti">Thông báo</div>
+                    </div>
+                    <div class="header__notify">
+                        <header class="header__notify-header">
+                            <h3>Thông báo mới nhận</h3>
+                        </header>
+                        <ul class="header__notify-list">
+                            <li class="header__notify-item">
+                                <a href= "" class="header__notify-link header__notify-item--viewed">
+                                    <img src="./accessts/img/twilight-logo-icon.png" alt="" class="header__notify-img">
+                                    <div class="header__notify-info">
+                                        <span class="header__notify-name">Apple ra mắt iPhone 14 Pro và iPhone 14 Pro Max</span>
+                                        <span class="header__notify-discription">Cảm biến nhóm bốn điểm ảnh kết hợp cứ mỗi bốn điểm ảnh thành một điểm ảnh lớn hơn tương đương với 2.44 µm</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="header__notify-item">
+                                <a href= "" class="header__notify-link header__notify-item--viewed">
+                                    <img src="./accessts/img/twilight-logo-icon.png" alt="" class="header__notify-img">
+                                    <div class="header__notify-info">
+                                        <span class="header__notify-name">Phone 14 Pro giới thiệu một hệ thống camera cho phép mọi người dùng, nhiếp ảnh gia chuyên nghiệp</span>
+                                        <span class="header__notify-discription">Camera Telephoto cải tiến với sức mạnh thu phóng quang học 3x</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="header__notify-item">
+                                <a href= "" class="header__notify-link header__notify-item--viewed">
+                                    <img src="./accessts/img/twilight-logo-icon.png" alt="" class="header__notify-img">
+                                    <div class="header__notify-info">
+                                        <span class="header__notify-name">Cảm biến nhóm bốn điểm ảnh với người mình yêu cũng mang lại lợi ích cho quy trình làm việc chuyên nghiệp, tối ưu hóa chi tiết trong ProRAW</span>
+                                        <span class="header__notify-discription">Chế độ Điện ảnh, hiện hỗ trợ 4K ở tốc độ 30 fps và 4K ở tốc độ 24 fps.</span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                        <footer class="header__notify-footer">
+                            <a href="" class="header__notify-footer-btn">Xem tất cả</a>
+                        </footer>
+                    </div>
+                </li>
+                <!--CHƯA ĐĂNG NHẬP-->
+                <li class="nav-item">
+                    <a href="/account/login" class="nav-link">
+                        <i class="icon-noti fa-regular fa-user"></i>
+                        <div class="nav-text">
+                            <div class="nav-label">Đăng nhập</div>
+                            <div class="nav-value">Tài Khoản</div>
+                        </div>
+                    </a>
+                </li>
+
+                <!--ĐÃ ĐĂNG NHẬP-->
+                <li class="header__navbar-item header__navbar-user">
+                    <img src="./accessts/img/avatar.jpg" alt="" class="header__navbar-user-img">
+                    <span class="header__navbar-user-name"></span>
+                    <ul class="header__navbar-user-menu">
+                        <li class="header__navbar-user-item header__navbar-user-item--separate">
+                            <a href="#" id="don-hang" onclick="donhang();">Đơn hàng</a>
+                        </li>
+                        <li class="header__navbar-user-item header__navbar-user-item--separate">
+                            <a href="#" id="log-out">Đăng xuất</a>
+                        </li>
+                    </ul>
+                </li>
+                <!--GIỎ HÀNG-->
+                <li class="nav-item">
+                    <div class="cart-button-wrapper">
+                        <button type="button" class="cart-button" onclick="window.location.href = './fillend.html';">  
+                            <i class="icon-cart fa-solid fa-cart-shopping"></i>  
+                            <span class="cart-badge"></span>  
+                        </button>  
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        </div>
+
+    </header>
+    <!--THANH ĐIỀU HƯỚNG-->
+    <div class="header-navigation">
+        <ul class="sub-nav-links">
+            <li class="sub-nav-links-text"><a href="#Samsung">SAMSUNG</a></li>
+            <li class="sub-nav-links-text"><a href="#Apple">APPLE</a></li>
+            <li class="sub-nav-links-text"><a href="#VIVO">VIVO</a></li>
+            <li class="sub-nav-links-text"><a href="#BPHONE">BPHONE</a></li>
+            <li class="sub-nav-links-text"><a href="#XIAOMI">XIAOMI</a></li>
+        </ul>
+    </div>
+
+    
+
+    <!--FORM D-->
+
+    <div class="modal">
+        <div class="modal__overlay"></div>
+
+        <div class="modal__body">
+            
+            <div class="auto-form" id="login-form"> 
+                <div class="auto-form__container">
+                    <div class="auto-form__line"></div>
+                    <div class="auto-form__header">
+                        <h3 class="auto-form__heading">Đăng nhập</h3>
+                        <span class="auto-form_switch-btn">Đăng ký</span>
+                    </div>
+                    <div class="auto-form__form">
+                        <div class="auto-form__group">
+                            <input type="username" class="auto-form__input" placeholder="Tài khoản của bạn">
+                        </div>
+                        <div class="auto-form__group">
+                            <input type="password" class="auto-form__input" placeholder="Mật khẩu của bạn">
+                        </div>
+                    </div>
+                    <div class="auto-form__controls">
+                        <button class="btn auto-form__controls-back">TRỞ VỀ</button>
+                        <button onclick="Dangnhap();" class="btn btn--primary">ĐĂNG NHẬP</button>
+                    </div>
+                </div>
+            </div>  
+                
+            <div class="auto-form" id="register-form">
+                <div class="auto-form__container">
+                    <div class="auto-form__line"></div>
+                    <div class="auto-form__header">
+                        <h3 class="auto-form__heading">Đăng ký</h3>
+                        <span class="auto-form_switch-btn">Đăng nhập</span>
+                    </div>
+                    <div class="auto-form__form">
+                        <div class="auto-form__group">
+                            <input type="username" class="auto-form__input" placeholder="Tài khoản của bạn">
+                        </div>
+                        <div class="auto-form__group">
+                            <input type="password" class="auto-form__input" placeholder="Mật khẩu của bạn">
+                        </div>
+                        <div class="auto-form__group">
+                            <input type="password" class="auto-form__input" placeholder="Nhập lại mật khẩu">
+                        </div>
+                    </div>
+                    <div class="auto-form__controls">
+                        <button class="btn auto-form__controls-back">TRỞ VỀ</button>
+                        <button onclick="Dangky();" class="btn btn--primary">ĐĂNG KÝ</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="app_container">
+        <div class="grid2">
+            <div class="bannerSection">
+                <img class="slideShow fade" src="./accessts/img/z-fold-5-2.png" alt="Z Fold 5">
+                <img class="slideShow fade" src="./accessts/img/vivo-1.png" alt="Vivo">
+                <img class="slideShow fade" src="./accessts/img/xiaomi-1.png" alt="Xiaomi 1">
+                <img class="slideShow fade" src="./accessts/img/xiaomi-2.png" alt="Xiaomi 2">
+                <img class="slideShow fade" src="./accessts/img/bphone-1.png" alt="BPhone">
+                <img class="slideShow fade" src="./accessts/img/z-fold-5.png" alt="Z Fold 5 Alternative">
+            </div>
+            <div class="grid__row app_content">
+                <div class="grid__column-2">
+                    <div class="fullcate">
+                        <div class="wrapper">
+                            <header>
+                                <h3 class="category__heading">
+                                    <i class="category__heading-icon fa-solid fa-dollar-sign"></i>Lọc giá
+                                </h3>
+                                <p>Sử dụng thanh trượt hoặc nhập giá.</p>
+                            </header>
+                            <div class="price-input">
+                                <div class="field">
+                                    <span class="minvalue">Từ</span>
+                                    <input type="text" class="input-min" value="0">
+                                    <span class="textvnd">VND</span>
+                                </div>
+                                <div class="field">
+                                    <span class="maxvalue">Đến</span>
+                                    <input type="text" class="input-max" value="50.000.000">
+                                    <span class="textvnd">VND</span>
+                                </div>
+                            </div>
+                            <div class="sliderhub">
+                                <div class="slider">
+                                    <div class="progress"></div>
+                                </div>
+                            </div>
+                            <div class="range-input">
+                                <input type="range" class="range-min" min="0" max="50000000" value="0" step="100">
+                                <input type="range" class="range-max" min="0" max="50000000" value="50000000" step="100">
+                            </div>
+                        </div>
+                    
+                        <nav class="category">
+                            <h3 class="category__heading">
+                                <i class="category__heading-icon fa-solid fa-mobile-screen"></i>Hãng điện thoại
+                            </h3>
+                            <div class="category-list">
+                                <label class="checkbox value-all">TẤT CẢ
+                                    <input type="checkbox" value="TATCA" checked>
+                                    <span class="check"></span>
+                                </label>
+                                <label class="checkbox">APPLE
+                                    <input type="checkbox" value="APPLE">
+                                    <span class="check"></span>
+                                </label>
+                                <label class="checkbox">SAMSUNG
+                                    <input type="checkbox" value="SAMSUNG">
+                                    <span class="check"></span>
+                                </label>
+                                <label class="checkbox">VIVO
+                                    <input type="checkbox" value="VIVO">
+                                    <span class="check"></span>
+                                </label>
+                                <label class="checkbox">BPHONE
+                                    <input type="checkbox" value="BPHONE">
+                                    <span class="check"></span>
+                                </label>
+                                <label class="checkbox">XIAOMI
+                                    <input type="checkbox" value="XIAOMI">
+                                    <span class="check"></span>
+                                </label>
+                            </div>
+                        </nav>
+                    
+                        <nav class="category">
+                            <h3 class="category__heading">
+                                <i class="category__heading-icon fa-brands fa-xing"></i>Sản phẩm
+                            </h3>
+                            <div class="category-list">
+                                <div class="border-input">
+                                    <input type="text" class="auto-form__input2" placeholder="Nhập tên sản phẩm">
+                                </div>
+                            </div>
+                        </nav>
+                    
+                        <nav class="category2">
+                            <button class="btnprocess">
+                                <span class="textprocess">Xử Lý</span>
+                                <i class="iconprocess fa-solid fa-gears"></i>
+                            </button>
+                        </nav>
+                    </div>
+
+                </div>
+                <div class="grid__column-10">
+                    <div class="home-filter">
+                        <div class="home-filter__notes">
+                            <div class="home-filter__label">Twilight Store</div>
+                            <div class="textads">
+                                <i class="textads-icon fa-solid fa-circle-check"></i>
+                                <span class="textads-span">Hàng chính hãng 100%</span>
+                            </div>
+                            <div class="textads">
+                                <i class="textads-icon fa-solid fa-truck"></i>
+                                <span class="textads-span">Miễn phí vận chuyển</span>
+                            </div>
+                        </div>
+
+                        <div class="select-input">
+                            <div class="select-input__label">
+                                <i class="select-input__az fa-solid fa-arrow-down-a-z"></i>
+                                <span class="select-input__label-text">Sắp xếp</span>
+                            </div>
+                            <i class="select-input__icon fa-solid fa-angle-down"></i>
+                            <ul class="select-input__list">
+                                <li class="select-input__item">
+                                    <a href="" class="select-input__link">Giá: Tăng dần</a>
+                                </li>
+                                <li class="select-input__item">
+                                    <a href="" class="select-input__link">Giá: Giảm dần</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="home-product">
+                        <div class="grid__row" id="productContainer">
+                            <!--Hiển thị sản phẩm trên javascript-->
+                        </div>
+                    </div>
+                    <ul class="pagination home-product__pagination" id="pagination">
+                        <!--Phân trang trên javascript-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="top-info">
+        <div class="grid3">
+            <div class="info-container">
+                <div class="info-box">
+                    <i class="fas fa-check-circle"></i>
+                    <p>Sản phẩm CHÍNH HÃNG</p>
+                </div>
+                <div class="info-box">
+                    <i class="fas fa-shipping-fast"></i>
+                    <p>Miễn phí vận chuyển TOÀN QUỐC</p>
+                </div>
+                <div class="info-box">
+                    <i class="fas fa-phone-volume"></i>
+                    <p>Hotline hỗ trợ 0796.045.926</p>
+                </div>
+                <div class="info-box">
+                    <i class="fas fa-sync-alt"></i>
+                    <p>Thủ tục đổi trả DỄ DÀNG</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-item2 modal__overlay-item" id="hienthi">
+        <!--Hiển thị thông tin chi tiết sản phẩm trên Javascript-->
+    </div>
+
+
+
+    <!-- LỊCH SỬ ĐƠN HÀNG -->
+    <div class="modal-overlay-o">
+        <div class="modal-history-o">
+            <!-- Hiển thị qua hàm donhang trên JAVASCRIPT-->
+        </div>
+    </div>
+
+    <!-- CHI TIẾT SP CỦA LỊCH SỬ ĐƠN HÀNG -->
+    <div class="modal-overlay-m">
+        <div class="modal-box-m">
+            <!-- Hiển thị qua hàm showOrderDetails trên JAVASCRIPT-->
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-box">
+            <div class="grid3">
+                <div class="section">
+                    <div>
+                        <h4>Chăm sóc khách hàng</h4>
+                        <ul>
+                            <li><a href="#">Chính sách đổi mới và bảo hành</a></li>
+                            <li><a href="#">Chính sách giải quyết khiếu nại</a></li>
+                            <li><a href="#">Chính sách bảo mật</a></li>
+                            <li><a href="#">Dịch vụ sửa chữa </a></li>
+                            <li><a href="#">Tra cứu đơn hàng</a></li>
+                            <li><a href="#">Tra cứu bảo hành</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Thông Tin Liên Hệ</h4>
+                        <ul>
+                            <li><a href="#">Tư vấn: 0796.045.926 (8:00 - 21:30)</a></li>
+                            <li><a href="#">Khiếu nại: 0862.860.692 (8:00 - 21:30)</a></li>
+                            <li><a href="#">Bảo hành: 0979.451.149 (8:00 - 21:30)</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Hình Thức Thanh Toán </h4>
+                        <div class="payment-methods">
+                            <i class="fab fa-cc-visa" title="Visa"></i>
+                            <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                            <i class="fab fa-cc-jcb" title="JCB"></i>
+                            <i class="fab fa-cc-amex" title="American Express"></i>
+                            <i class="fas fa-credit-card" title="ATM"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <h4>Đơn vị vận chuyển</h4>
+                        <div class="shipping-methods">
+                            <img src="./accessts/img/logistic/grabex.png"
+                                alt="Vietnam Post" title="Vietnam Post">
+                            <img src="./accessts/img/logistic/ninjavan.png"
+                                alt="Nhat Tin Logistics" title="Nhat Tin Logistics">
+                            <img src="./accessts/img/logistic/shopeeexpress.png"
+                                alt="Vietnam Post" title="Vietnam Post">
+                                <img src="./accessts/img/logistic/vnpost.png"
+                                alt="Vietnam Post" title="Vietnam Post">
+                            <img src="./accessts/img/logistic/inter.png"
+                                alt="Nhat Tin Logistics" title="Nhat Tin Logistics">
+                            <img src="./accessts/img/logistic/ghn.png"
+                                alt="Vietnam Post" title="Vietnam Post">
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="footer-bottom">
+                    <p>© 2024 | CỔNG TY CỔ PHẦN TWILIGHT PHONE </p>
+                    <p>Địa chỉ: 105 Bà Huyện Thanh Quan, phường Võ Thị Sáu, Quận 3, Thành phố Hồ Chí Minh.</p>
+                    <p>Điện thoại: 0796.045.926 | Chịu trách nhiệm nội dung: TWILIGHT TEAM.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="custom-alert"></div>
+
+    <script type="module" src="./javascript.js"></script>
+    <!-- <script  src="./javascript.js"></script> -->
+</body>
+</html>

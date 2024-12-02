@@ -1,0 +1,142 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: none;
+    box-sizing: border-box;
+}
+:root {
+    --light: #f9f9f9;
+    --blue: #007BFF;
+    --light-blue: #cfe8ff;
+    --grey: #eee;
+    --dark-grey: #aaaaaa;
+    --dark: #342e37;
+    --red: #dc3545;
+    --border: #e0e0e0;
+    --text: #333;
+    --accent: #007bff;
+    --input-bg: #ffffff;
+    --hover: #f8f9fa;
+    --green: #28a745;
+    --gray: #6c757d;
+    --yellow: #ffc107;
+}
+#custom-alert{
+    position: fixed;
+    top: 32px;
+    right: 32px;
+}
+.custom-alert {
+    display: flex;
+    align-items: center;
+    padding: 20px 10px;
+    border-radius: 5px;
+    color: white;
+    z-index: 5000;
+    box-shadow: 0 5px 8px rgba(0,0,0, 0.08);
+    display: flex;
+    min-width: 400px;
+    max-width: 450px;
+    animation: slideInLeft ease 0.3s, fadeOut linear 1s 3s forwards;
+}
+
+.custom-alert--success {
+    background-color: #4caf50;
+}
+
+.custom-alert--warning {
+    background-color: #ff9800;
+}
+
+.custom-alert + .custom-alert{
+    margin-top: 10px;
+}
+
+
+.custom-alert__icon {
+    font-size: 24px;
+    color: white;
+    padding: 0 16px;
+}
+
+.custom-alert__body{
+    flex-grow: 1;
+}
+.custom-alert__title {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+}
+
+.custom-alert__msg {
+    margin-top: 6px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: white;
+
+}
+
+.custom-alert__close{
+    font-size: 26px;
+    color: white;
+    cursor: pointer;
+    padding: 0 16px;
+}
+
+
+/* Confirm */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-confirm {
+    background-color: #fff;
+    padding: 30px 20px;
+    border-radius: 8px;
+    width: 400px;
+    text-align: center;
+    position: relative;
+}
+  
+  .modal-confirm p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+  
+  .modal-confirm .button-container {
+    display: flex;
+    justify-content: center;
+}
+  
+  .modal-confirm button {
+    padding: 10px 20px;
+    margin: 0 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    min-width: 80px;
+}
+  
+  .modal-confirm button#confirmYes {
+    background-color: var(--red);
+    color: #fff;
+}
+  
+  .modal-confirm button#confirmNo {
+    background-color: var(--blue);
+    color: #fff;
+}
+  
+  .modal-confirm button:hover {
+    opacity: 0.9;
+}

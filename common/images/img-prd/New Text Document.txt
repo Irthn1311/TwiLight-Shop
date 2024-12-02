@@ -1,0 +1,731 @@
+name
+brand
+img
+old-price
+new-price = old-price - 10% old-price (xu dung ham` tinh')
+phienban1 (8GB/512GB) = new-price (macdinh, xu dung ham` gan')
+phienban2 (16GB/1028GB) = new-price + 50% new-price (xu dung ham` tinh')
+
+thongso:
+vi xử lý
+bộ nhớ trong
+dung lượng pin
+kích thước màn hình
+RAM
+tần số quét
+
+ten img: brand-1.png, brand-2.png
+vd: apple-1.png, apple-2.png, samsung-1.png
+
+apple - 9 sp
+Samsung - 12 sp
+bphone - 4 sp
+xiaomi - 11 sp
+VIVO - 12 sp
+
+--- trình bày thứ tự cho m lấy data
+name
+brand
+img
+old-price
+Phienban1
+Phienban2
+vi xử lý
+bộ nhớ trong
+dung lượng pin
+kích thước màn hình
+RAM
+tần số quét
+Phienban1
+Phienban2
+
+--------------------------------------------------
+1.
+Samsung Galaxy A06 4GB/128GB
+Samsung
+ss1.png
+4.090.000 ₫
+4GB/128GB
+8GB/512GB
+MediaTek G85
+128GB
+5.000mAh
+6.7"
+4GB
+60Hz
+----
+2.
+Samsung Galaxy A15 - 8GB/128GB
+Samsung
+ss2.png
+4,190,000 ₫
+8GB/128GB
+16GB/512GB
+Helio G99
+128GB
+5000mAh
+6.5"
+8GB
+90Hz
+----
+3.
+Samsung Galaxy A05S - 4GB/128GB 
+Samsung
+ss3.png
+3,990,000 ₫
+4GB/128GB 
+8GB/512GB
+Snap 680
+128GB
+5000mAh
+6.7"
+4GB
+90Hz
+----
+4.
+Samsung Galaxy A25 5G - 6GB/128GB
+Samsung
+ss4.png
+6,590,000 ₫
+6GB/128GB
+8GB/512GB
+Exynos 1280
+128GB
+5000mAh
+6.5"
+6GB
+120Hz
+----
+5.
+Samsung Galaxy M34 5G 8GB/128GB
+Samsung
+ss5.png
+7,990,000 ₫
+8GB/128GB
+16GB/512GB
+Exynos 1280
+128GB
+6000mAh
+6.5"
+8GB
+120Hz
+-----
+6.
+Samsung Galaxy S23 FE 5G 8GB/128GB 
+Samsung
+ss6.png
+14,890,000 ₫
+8GB/128GB 
+16GB/512GB
+Exynos 2200
+128GB
+4500mAh
+6.4"
+8GB
+120Hz
+-----
+7.
+Samsung Galaxy Z Flip5 8GB/256GB
+Samsung
+ss7.png
+25,990,000 ₫
+8GB/256GB 
+16GB/512GB
+Snap 8 Gen 2
+256GB
+3700mAh
+6.7" - 3.4"
+8GB
+120Hz
+-----
+8.
+Samsung Galaxy Z Pro 16GB/512GB
+Samsung
+ss8.png
+29,990,000 ₫
+16GB/512GB
+32GB/1TB
+Snap 8 Gen 2
+512GB
+3700mAh
+6.7" - 3.4"
+8GB
+120Hz
+
+----
+9.
+Samsung Galaxy S23 Ultra 12GB/512GB
+Samsung
+ss9.png
+36,990,000 ₫
+12GB/512GB
+16GB/1TB
+Snap 8 Gen 2
+512GB
+5000mAh
+6.8"
+12GB
+120Hz
+----
+10.
+Samsung Galaxy Z Fold5 12GB/512GB
+Samsung
+ss10.png
+44,990,000 ₫
+12GB/512GB
+16GB/1TB
+Snap 8 Gen 2
+512GB
+4400mAh
+7.6" - 6.2"
+12GB
+120Hz
+----
+11.
+Samsung Galaxy Z Fold6 12GB/512GB
+Samsung
+ss11.png
+45,990,000 ₫
+12GB/512GB
+16GB/1TB
+Snap 8 Gen 3
+512GB
+4400mAh
+7.6" - 6.3"
+12GB
+1-120Hz
+----
+12.
+Samsung Galaxy S24 Ultra - 12GB/1TB
+Samsung
+ss12.png
+44,490,000 ₫
+16GB/1TB
+32GB/1TB
+Snap 8 Gen 3
+1TB
+5000mAh
+6.8"
+12GB
+120Hz
+----------------------------------------------------------
+13.
+iPhone 11 (64GB)
+Apple
+ap1.png
+9,990,000 ₫
+64GB
+128GB
+A13 Bionic
+LCD
+1792 x 828
+6.1"
+3110mAh
+60Hz
+----
+14.
+iPhone 12 (64GB) 
+Apple
+ap2.png
+11,990,000 ₫
+64GB
+128GB
+A14 Bionic
+OLED
+2532 x 1170
+6.1"
+2815mAh
+60Hz
+---
+15.
+iPhone 13 (128GB) 
+Apple
+ap3.png
+14,990,000 ₫
+128GB
+512GB
+A15
+OLED
+2532 x 1170
+6.1"
+3240mAh
+60Hz
+---
+16.
+iPhone 14 (128GB)
+Apple
+ap4.png
+17,090,000 ₫
+128GB
+512GB
+A15 Bionic
+Retina
+2532 x 1170
+6.1"
+3279mAh
+60Hz
+----
+17.
+iPhone 14 Plus (128GB)
+Apple
+ap5.png
+19,390,000 ₫
+128GB
+512GB
+A15
+Retina
+2778 x 1284
+6.7"
+4325mAh
+60Hz
+---
+18.
+iPhone 15 Plus (128GB)
+Apple
+ap6.png
+21,990,000 ₫
+128GB
+512GB
+A16 Bionic
+Retina
+2796 x 1290
+6.7"
+4383mAh
+60Hz
+----
+19.
+iPhone 16 (256GB)
+Apple
+ap7.png
+24,990,000 ₫
+256GB
+1TB
+A18
+A16 Bionic
+Retina
+2556 x 1179
+6.1"
+4500mAh
+120Hz
+----
+20.
+iPhone 15 Pro Max (256GB) 
+Apple
+ap8.png
+28,690,000 ₫
+256GB
+1TB
+A17 Pro
+Retina
+2796 x 1290
+6.7"
+4422mAh
+120Hz
+---
+21.
+iPhone 16 Plus (256GB)
+Apple
+ap9.png
+28,990,000 ₫
+256GB
+1TB
+A18 Pro
+Retina
+2556 x 1179
+6.1"
+3274mAh
+120Hz
+------------------------------------------------------
+22.
+Vivo Y03T 4GB/64GB
+VIVO
+vv1.png
+2,790,000 ₫
+4GB/64GB
+8GB/128GB
+T612
+64GB
+5000mAh
+6.56"
+4GB
+60Hz
+-----
+23.
+Vivo Y02s - 3GB/32GB 
+VIVO
+vv2.png
+2,790,000 ₫
+3GB/32GB 
+6GB/64GB
+Helio P35
+32GB
+5000mAh
+6.51"
+3GB
+60Hz
+---
+24.
+Vivo Y19S 8GB/128GB
+VIVO
+vv3.png
+4,790,000 ₫
+8GB/128GB
+16GB/512GB
+Unisoc Tiger T612
+128GB
+5000mAh
+6.68"
+8GB
+90Hz
+----
+25.
+Vivo Y35 8GB/128GB 
+VIVO
+vv4.png
+6,990,000 ₫
+8GB/128GB
+16GB/512GB
+Snap 680
+128GB
+5000mAh
+6.58"
+8GB
+90Hz
+----
+26.
+Vivo Y36 8GB/128GB
+VIVO
+vv5.png
+7,490,000 ₫
+8GB/128GB
+16GB/512GB
+Snap 680
+128GB
+5000mAh
+6.64"
+8GB
+90Hz
+----
+27.
+Vivo Y100 8GB/256GB
+VIVO
+vv6.png
+7,690,000 ₫
+8GB/256GB
+16GB/512GB
+Snap 685
+256GB
+5000mAh
+6.67″
+8GB
+120Hz
+----
+28.
+Vivo T1X 8GB/128GB
+VIVO
+vv7.png
+9,990,000 ₫
+8GB/256GB
+16GB/512GB
+SDM 680
+5000mAh
+8GB
+128GB
+6.58"
+120Hz
+-------
+29.
+Vivo V25e 4G 8GB/128GB
+VIVO
+vv8.png
+8,490,000 ₫
+8GB/256GB
+16GB/512GB
+Helio G99
+4500mAh
+8GB
+128GB
+6.44"
+90Hz
+-----
+30.
+Vivo V27e 4G 8GB/256GB
+VIVO
+vv9.png
+15,990,000 ₫
+8GB/256GB
+16GB/512GB
+Helio G99
+4600mAh
+8GB
+256GB
+6.62"
+120Hz
+---
+31.
+Vivo T1 5G 8GB/256GB
+VIVO
+vv10.png
+18,990,000 ₫
+8GB/256GB
+16GB/512GB
+Helio G99
+4600mAh
+8GB
+256GB
+6.62"
+120Hz
+---
+32.
+Vivo V29e 5G 8GB/256GB
+VIVO
+vv11.png
+12.990.000 ₫
+Snap 695
+4800mAh
+8GB
+256GB
+6.67"
+120Hz
+----
+33.
+Vivo V25 5G 8GB/128GB
+VIVO
+vv12.png
+15,490,000 ₫
+8GB/128GB
+16GB/256GB
+Dimensity 900
+4500mAh
+8GB
+128GB
+6.44"
+90Hz
+--------------------------------------------------
+34.
+Bphone A85 5G 12GB/256GB
+BPHONE
+
+42,490,000 ₫
+12GB/256GB
+24GB/1TB
+Snap 7 Gen 3
+5200mAh
+12GB
+256GB
+6.7"
+120Hz
+----
+35.
+Bphone A60 5G 12GB/1TB
+BPHONE
+
+44,990,000 ₫
+12GB/1TB
+24GB/1TB
+Snap 8 Gen 3
+4400mAh
+12GB
+1TB
+7.6" - 6.3"
+1-120Hz
+----
+36.
+Bphone A50 5GB 12GB/512GB
+BPHONE
+
+12GB/1TB
+32,990,000 ₫
+Snap 8 Gen 3
+4000mAh
+12GB
+512GB
+6.7" - 3.4"
+1-120Hz
+----
+37.
+Bphone A40 4GB 12GB/512GB
+BPHONE
+
+31,490,000 ₫
+12GB/512GB
+12GB/1TB
+Snap 8 Gen 3
+5000mAh
+12GB
+512GB
+6.8"
+120Hz
+--------------------------------------------------
+38.
+Xiaomi Redmi 12 8GB/128GB
+XIAOMI
+
+4,790,000 ₫
+8GB/128GB
+12GB/256GB
+Helio G88
+5000mAh
+8GB
+128GB
+6.79"
+90Hz
+-----
+39.
+Redmi Note 13 (6GB/128GB)
+XIAOMI
+
+4,890,000 ₫
+8GB/128GB
+12GB/256GB
+Snap 685
+5000mAh
+6GB
+128GB
+6.67"
+120Hz
+-----
+40.
+Redmi Note 12 (4GB/128GB)
+XIAOMI
+
+
+4,990,000 ₫
+8GB/128GB
+12GB/256GB
+Snap 685
+5000mAh
+4GB
+128GB
+6.67"
+120Hz
+----
+41.
+POCO X6 5G (8GB/256GB) 
+XIAOMI
+
+8,490,000 ₫
+8GB/256GB
+16GB/512GB
+Snap 7s Gen 2
+5100mAh
+8GB
+256GB
+6.67"
+120Hz
+-----
+42.
+Redmi Note 13 Pro 5G (8GB/256GB) 
+XIAOMI
+
+10,990,000 ₫
+8GB/256GB
+16GB/512GB
+Dimensity 7200
+5000mAh
+8GB
+256GB
+6.67"
+120Hz
+-----
+43.
+Xiaomi 14T (12GB/512GB)
+XIAOMI
+
+13,990,000 ₫
+12GB/512GB
+16GB/1TB
+Dimensity 8300-Ultra
+5000mAh
+12GB
+512GB
+6.67"
+144Hz
+----
+44.
+Xiaomi 13T (12GB/256GB)
+XIAOMI
+
+12,990,000 ₫
+12GB/256GB
+16GB/512GB
+Dimensity 8200
+5000mAh
+12GB
+256GB
+6.67"
+144Hz
+---
+45.
+Xiaomi 14 Ultra (16GB/512GB)
+XIAOMI
+
+32,990,000 ₫
+16GB/512GB
+32GB/1TB
+Snap 8 Gen 3
+5000mAh
+16GB
+512GB
+6.73"
+120Hz
+---
+46.
+Xiaomi 14T Pro (12GB/512GB)
+XIAOMI
+
+17,990,000 ₫
+12GB/512GB
+16GB/1TB.
+MediaTek 9300+
+5000mAh
+12GB
+512GB
+6,67"
+144Hz
+-----
+47.
+Xiaomi 14 (12GB/256GB)
+XIAOMI
+
+22,990,000 ₫
+12GB/256GB
+16GB/512GB
+Snap 8 Gen 3
+4610mAh
+12GB
+256GB
+6.36"
+120Hz
+----
+48.
+Xiaomi 11 Lite 5G NE (6GB/128GB)
+XIAOMI
+
+
+8,990,000 ₫
+6GB/128GB
+12GB/256GB
+Dimensity 7200
+5000mAh
+8GB
+256GB
+6.67"
+120Hz
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
